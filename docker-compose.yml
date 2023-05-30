@@ -1,0 +1,32 @@
+version: '3'
+services:
+  neo4j:
+    container_name: neo4j-dev
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./neo4j/data:/data
+      - ./neo4j/logs:/logs
+    environment:
+      - NEO4J_AUTH=neo4j/password
+
+  metrics-api:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - neo4j
+    command:
+      - /bin/bash
+      - -c
+      - |
+        until curl -s -o /dev/null http://neo4j-dev:7474/browse; do
+          echo "Waiting for Neo4j to start..."
+          sleep 5
+        done
+
+        bundle exec rake neo4j:schema:load &&
+        bundle exec rails s -p 3000 -b '0.0.0.0'
