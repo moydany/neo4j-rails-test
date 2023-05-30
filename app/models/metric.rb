@@ -4,4 +4,6 @@ class Metric
   property :key, type: String
   property :value, type: Integer
   property :timestamp, type: Integer
+
+  validates :name, presence: true
 end

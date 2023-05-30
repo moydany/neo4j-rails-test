@@ -23,10 +23,11 @@ services:
       - /bin/bash
       - -c
       - |
-        until curl -s -o /dev/null http://neo4j-dev:7474/browse; do
+        until curl -s -o /dev/null http://neo4j-dev:7474/; do
           echo "Waiting for Neo4j to start..."
-          sleep 5
+          sleep 3
         done
 
         bundle exec rake neo4j:schema:load &&
         bundle exec rails s -p 3000 -b '0.0.0.0'
+      # bundle exec rails test && exit 0 # uncomment to run tests and comment the rails s command above
