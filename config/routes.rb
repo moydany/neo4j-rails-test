@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/metrics', to: 'metrics#index'
   post '/metric/:key', to: 'metrics#create'
+  get '/metrics', to: 'metrics#aggregate'
   get '/metrics/all', to: 'metrics#show_all'
+  get '/metric/name/:name', to: 'metrics#show_by_name'
+  get '/metric/key/:key', to: 'metrics#show_by_key'
+  delete '/metric/:key', to: 'metrics#destroy'
+
 end
