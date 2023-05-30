@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/metric/key/:key', to: 'metrics#show_by_key'
   delete '/metric/:key', to: 'metrics#destroy'
 
+  get '/test', to: 'application#lifecheck'
 end
