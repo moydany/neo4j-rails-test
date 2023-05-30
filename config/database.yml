@@ -1,0 +1,16 @@
+default: 
+  adapter: neo4j
+  url: http://neo4j:password@localhost:7474
+  connect_timeout: 120
+
+development:
+  <<: *default
+  url: http://neo4j:password@localhost:7474
+
+test:
+  <<: *default
+  url: http://neo4j:password@localhost:7474
+
+production:
+  <<: *default
+  url: http://neo4j:password@localhost:7474
