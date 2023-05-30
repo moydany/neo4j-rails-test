@@ -23,7 +23,7 @@ module MetricsApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.active_support.alias_parser = :psych
-    config.neo4j.driver.url = 'bolt://localhost:7687'
+    config.neo4j.driver.url = ENV['NEO4J_BOLT_URL'] || 'bolt://0.0.0.0:7687'
     config.neo4j.driver.username = 'neo4j'
     config.neo4j.driver.password = 'password'
     

@@ -1,16 +1,16 @@
-default: 
+default: &default
   adapter: neo4j
-  url: http://neo4j:password@localhost:7474
+  url: <%= ENV['NEO4J_BOLT_URL'] || 'bolt://neo4j:password@0.0.0.0:7687' %>
   connect_timeout: 120
 
 development:
   <<: *default
-  url: http://neo4j:password@localhost:7474
+  url: <%= ENV['NEO4J_BOLT_URL'] || 'bolt://neo4j:password@0.0.0.0:7687' %>
 
 test:
   <<: *default
-  url: http://neo4j:password@localhost:7474
+  url: <%= ENV['NEO4J_BOLT_URL'] || 'bolt://neo4j:password@0.0.0.0:7687' %>
 
 production:
   <<: *default
-  url: http://neo4j:password@localhost:7474
+  url: <%= ENV['NEO4J_BOLT_URL'] || 'bolt://neo4j:password@0.0.0.0:7687' %>
