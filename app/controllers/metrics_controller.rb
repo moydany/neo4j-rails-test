@@ -6,13 +6,11 @@ class MetricsController < ApplicationController
     metric_params = params.require(:metric).permit(:value)
     metric_attributes = metric_params.merge(timestamp: Time.now.to_i, key: params[:key])
     
-    # Get the next index for name generation
     next_index = Metric.count + 1
     metric_name = params.dig(:metric, :name) || "metric_#{next_index}"
     
     metric_attributes[:name] = metric_name
   
-    # Check if a metric with the same key already exists
     if Metric.exists?(key: metric_attributes[:key])
       render json: { error: "A metric with this key already exists" }, status: :conflict
       return
