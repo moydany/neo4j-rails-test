@@ -44,6 +44,7 @@ Once Docker is installed, navigate to the root directory of the project and run 
 
 ```
 docker-compose up
+```
 
 This command will build the Docker images and start the containers based on the `docker-compose.yml` and `Dockerfile` specifications. The API will be accessible at `localhost:3000`.
 
