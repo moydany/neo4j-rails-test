@@ -62,3 +62,14 @@ I provide a collection of Postman tests. To run these tests:
 2. Go to the following URL and import the collection: [Postman Collection](https://www.postman.com/restless-shadow-8821/workspace/valid-eval/collection/4494437-9a57cff5-c00c-4586-8620-ca9e189f7533?action=share&creator=4494437).
 3. Make sure your Metrics API server is running.
 4. In Postman, select the collection you just imported and click "Run".
+
+## Accessing Neo4j Web App
+
+The Metric Logging and Reporting Service utilizes Neo4j as the underlying database. To access the Neo4j web app for further administration and data visualization, follow these steps:
+
+1. Make sure the Metric Logging and Reporting Service and Neo4j are running.
+2. Open a web browser and navigate to [http://0.0.0.0:7474/browser/](http://0.0.0.0:7474/browser/).
+3. You will be prompted to enter the login credentials. By default, the username is set to `neo4j` and password to `password`.
+4. Once logged in, you can interact the Neo4j web app.
+
+Please note that accessing the Neo4j web app requires both the Metric Logging and Reporting Service and Neo4j to be running simultaneously.
